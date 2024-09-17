@@ -9,7 +9,7 @@ pipeline {
             steps {
                 sshagent ([SSH_KEY_ID]) {
                     sh """
-                    scp -o StrictHostKeyChecking=no -r ${WORKSPACE}/* root@${STAGING_SERVER}:/var/www/html/phpwebapp/
+                    scp -o StrictHostKeyChecking=no -r ${WORKSPACE}/* root@${STAGING_SERVER}:/var/www/html/ci4webapp/
                     """
                 }
             }
