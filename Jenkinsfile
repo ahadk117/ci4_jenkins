@@ -9,7 +9,7 @@ pipeline {
             steps {
                 sshagent ([SSH_KEY_ID]) {
                     sh """
-                    scp -o StrictHostKeyChecking=no -r ${WORKSPACE}/. root@${STAGING_SERVER}:/var/www/html/ci4webapp/
+                    rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" ${WORKSPACE}/ root@${STAGING_SERVER}:/var/www/html/ci4webapp/
                     """
                 }
             }
