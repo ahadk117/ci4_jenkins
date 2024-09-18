@@ -8,4 +8,8 @@ class Home extends BaseController
     {
         return view('welcome_message');
     }
+    public function checkTesting()
+    {
+        return view('check_test_page');
+    }
 }
