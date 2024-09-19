@@ -16,7 +16,7 @@ class App extends BaseConfig
      *
      * E.g., http://example.com/
      */
-    public string $baseURL = 'http://143.110.243.191/';
+    public string $baseURL = 'http://143.110.243.191/ci4webapp/';
     // public $baseURL;
 	// public function __construct()
 	// {
