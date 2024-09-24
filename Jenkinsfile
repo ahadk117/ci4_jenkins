@@ -17,15 +17,13 @@ pipeline {
         }
         stage('Manual Approval for Production') {
             steps {
-                input message: 'Proceed to deploy to production?'
+                script {
+                    // Wait for manual approval
+                    def userInput = input(message: 'Proceed to deploy to production?', ok: 'Yes')
+                }
             }
         }
         stage('Deploy to Production') {
-            when {
-                expression {
-                    input.message == 'Yes' // Proceed only if manual approval was given
-                }
-            }
             steps {
                 sshagent([SSH_KEY_ID]) {
                     sh """
