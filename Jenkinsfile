@@ -47,7 +47,7 @@ pipeline {
             steps {
                 sshagent ([SSH_KEY_ID]) {
                     sh """
-                    rsync -avz --ignore-existing --exclude='assets' --exclude='Profile' ${WORKSPACE}/ root@${STAGING_SERVER}:/var/www/html/ci4webapp/
+                    rsync -avz --ignore-existing --exclude='assets' --exclude='Profile' --exclude='test_demo' ${WORKSPACE}/ root@${STAGING_SERVER}:/var/www/html/ci4webapp/
                     """
                 }
             }
